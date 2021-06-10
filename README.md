@@ -124,6 +124,81 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/info
 
 ------------------------------------------------------------------------------------------
 
+#### Rotation IP with specific proxy or position
+ 
+<details>
+<summary><code>GET</code> <code><b>/v1/rotation/proxy/<< proxy >></b></code> <code>[rotation IP with specific proxy]</code> </summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                                            |
+> |-----------|-----------|-------------------------|----------------------------------------------------------------------------------------|
+> | proxy     |  required | string                  | A proxy or socks in format <code>ip:port</code> to indicate the device to rotation IP  |
+
+##### Responses
+
+> | field      |   data type    |  description                                                                                              	  |
+> |------------|----------------|--------------------------------------------------------------------------------------------------------------|
+> | status     |   boolean      |  `True` if sent command successfully, `False` if another reason                                           	  |
+> | msg        |   string       |  `slot_not_found` could not find the slot attached with the proxy                                            |
+> |            |                |  `modem_disconnected` modem disconnected, could not rotation                                                 |
+> |            |                |  `command_sent` sent successfully                                                                            | 
+
+- Send rotation command successfully
+
+```javascript
+{
+  "status": true,
+  "msg": "command_sent"
+}
+```
+
+- Another status  
+
+```javascript
+{
+  "status": false,
+  "msg": "modem_disconnected"
+}
+```
+
+##### Example cURL
+
+ > send a command to rotation IP of device for proxy <code>192.168.1.100:4001</code>
+ 
+```javascript
+curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rotation/192.168.1.100:4001
+```
+
+</details>
+
+
+<details>
+<summary><code>GET</code> <code><b>/v1/rotation/position/<< position >></b></code> <code>[rotation IP with specific position]</code> </summary>
+
+##### Parameters
+
+> | name      |  type     | data type               | description                                                                                  |
+> |-----------|-----------|-------------------------|----------------------------------------------------------------------------------------------|
+> | position  |  required | number                  | A position number of modem in device list from 1 to N	to indicate the device to rotation IP 	|
+
+
+##### Responses
+
+Same as <i>rotation IP with specific proxy</i>
+
+##### Example cURL
+
+> send a command to rotation IP of modem in position 1
+```javascript
+curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rotation/1
+```
+
+</details>
+
+
+------------------------------------------------------------------------------------------
+
 #### Get status of proxy or position
  
 <details>
@@ -163,6 +238,8 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/info
 
 ##### Example cURL
 
+ > send a command to get status of device for proxy <code>192.168.1.100:4001</code>
+ 
 ```javascript
 curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/status/192.168.1.100:4001
 ```
@@ -175,13 +252,18 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/stat
 
 ##### Parameters
 
-Same as (#get-status-of-specific-proxy)
+> | name      |  type     | data type               | description                                                                           |
+> |-----------|-----------|-------------------------|---------------------------------------------------------------------------------------|
+> | position  |  required | number                  | A position number of modem in device list from 1 to N								    |
+
 
 ##### Responses
 
-Same as (#get-status-of-specific-proxy)
+Same as <i>get status of specific proxy</i>
 
 ##### Example cURL
+
+ > send a command to get status of device at position 1
 
 ```javascript
 curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/status/1
