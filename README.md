@@ -513,6 +513,49 @@ curl 'http://192.168.1.100/selling/shared_proxies?page=1&limit=20'
 </details>
 
 
+
+#### Generate socks/http proxies
+
+<details>
+ <summary><code>POST</code> <code><b>/selling/generate</b></code> </summary>
+
+##### Parameters
+
+An ideas is generate multiple proxies in a range of positions from `positionFrom` to `positionTo` instead of create one by one shared port. It's save a lot time and convenient.
+
+> | name               		   |  type     | data type    | description                                                       										              |
+> |----------------------------|-----------|--------------|-----------------------------------------------------------------------------------------------------------------------|
+> | positionFrom               |  required | integer      | Start position number to generate (included this position)                              					          |
+> | positionTo                 |  required | integer      | End of position number to generate (included this position)                             			                  |
+> | numberOfPorts              |  required | integer      | Number of shared ports per position                                   												  |
+> | portType              	   |  required | integer (1,2)| Indicate this is shared socks or shared proxy. `1` is shared proxy, `2` is shared socks                  			  |
+> | ipType              	   |  required | integer (1,2)| Indicate this is IPv4 or IPv6 type `1` is IPv4, `2` is IPv6                  										  |
+> | genPort              	   |  required | integer (1,2)| A type of generate port: `1` is randomize port from `genPortStart`, `2` is start in a range with sequence incremental |
+> | genPortStart               |  required | integer      | A shared port number starting with                                                                                    |
+> | customDNS              	   |  required | string       | A customize ns servers separate by comma, leave blank if you want to use default google DNS (8.8.8.8 8.8.4.4)         |
+> | expiredDate                |  required | integer      | A seconds from epoch time present the expired date of this shared port	                                              |
+> | userAuthenticationEntry    |  required | string       | Authentication user/password list separate by comma like `user1:pass1,user2:pass2`. Leave blank if ignore             |
+> | ipAuthenticationEntry      |  required | integer      | Authentication IP list separate by comma like `128.123.1.38,1.211.12.125`. Leave blank if ignore                      |
+> | whitelistLimitAccessEntry  |  required | integer      | Website whitelist list separate by comma like `*.whitelist.com,facebook.com,*.facebook.com`. Leave blank if ignore 	  |
+> | blacklistLimitAccessEntry  |  required | integer      | Website whitelist list separate by comma like `*.whitelist.com,facebook.com,*.facebook.com`. Leave blank if ignore    |
+> | bwLimitEnabled             |  required | integer (0,1)| Limit bandwidth download/upload? `1` if enabled else `0`															  |
+> | bwLimitRate          	   |  required | integer      | A maximum of Mbps (Megabit per second) could be reached	to download/upload											  |
+> | counterDownloadLimit       |  required | integer (1,2)| Enable limit download data usage or not, `1` if you want share `unlimited`. `2` if you want `limited`				  |
+> | counterDownloadLimitBy     |  required | integer (1-4)| `1` is daily reset, `2` is weekly reset, `3` is monthly reset, `4` is never reset 									  |
+> | counterDownloadQuotaInMB   |  required | integer      | A number of MB (Megabytes) to limit download data when `counterDownloadLimit` enabled as `limited`					  |
+> | counterUploadLimit         |  required | integer (1,2)| Enable limit upload data usage or not, `1` if you want share `unlimited`. `2` if you want `limited`					  |
+> | counterUploadLimitBy       |  required | integer (1-4)| `1` is daily reset, `2` is weekly reset, `3` is monthly reset, `4` is never reset 									  |
+> | counterUploadQuotaInMB     |  required | integer      | A number of MB (Megabytes) to limit upload data when `counterUploadLimit` enabled as `limited`						  |
+> | memo			           | required  | string       | A noted text for this share socks/proxy									     	                    				  |
+
+
+
+
+##### Responses
+
+A list of json object in `data` section 
+
+
 > Contact information:
  > * Website: [http://xproxy.io](http://xproxy.io])
  > * Telegram: @phunguyen_hcmus
