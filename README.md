@@ -556,6 +556,95 @@ An ideas is generate multiple proxies in a range of positions from `positionFrom
 A list of json object in `data` section 
 
 
+##### Example cURL
+
+ > send a POST command delete shared socks/proxy with ID: 5 & 6
+ 
+```javascript
+curl -X POST 'http://localhost/selling/generate' \
+  -H "Content-Type: application/json" \
+  -d '{
+         "positionFrom":1, "positionTo":2, "numberOfPorts":2, "authMethod":0, 
+         "authEntry":"", "ipAuthenticationEntry":"125.22.13.11,125.22.13.12",
+         "userAuthenticationEntry":"user:123", "portType":1, "ipType":1, "genPort":2,
+         "genPortStart":20001, "expiredDate":1628964354656, "whitelistLimitAccessEntry":"facebook.com,*.facebook.com",
+         "blacklistLimitAccessEntry":"porn.com,*.porn.com", "counterUploadLimit":0, "counterUploadLimitBy":1,
+         "counterUploadQuotaInMB":100, "counterDownloadLimit":0, "counterDownloadLimitBy":1,
+         "counterDownloadQuotaInMB":100, "counterAllLimit":1, "counterAllLimitBy":1, "counterAllQuotaInMB":1000,
+         "bwLimitEnabled":0, "bwLimitRate":0, "customDNS":"8.8.8.8 8.8.4.4", 
+         "maxConnection":1000, "memo":"Test"
+    }'
+  
+```
+
+
+
+##### Responses
+- Created successfully
+    > HTTP status: 200
+
+```javascript
+{
+  "status": true,
+}
+```
+    
+- Another status  
+    
+```javascript
+{
+  "status": false,
+}
+```
+
+</details>
+
+#### Delete shared socks/http proxies
+
+<details>
+ <summary><code>POST</code> <code><b>/selling/bulk_delete</b></code> </summary>
+
+##### Parameters
+
+You can bulk delete a list of `ID` shared socks/proxy 
+
+> | name             |  type     | data type        | description                                   |
+> | -----------------|-----------|------------------|-----------------------------------------------|
+> | ids              |  required | Array (integer)  | Array of shared socks/proxy                   |
+ 
+
+
+##### Responses
+
+- Deleted successfully
+    > HTTP status: 200
+
+```javascript
+{
+  "status": true,
+}
+```
+
+- Another status  
+
+```javascript
+{
+  "status": false,
+}
+```
+
+##### Example cURL
+
+ > send a POST command delete shared socks/proxy with ID: 5 & 6
+ 
+```javascript
+curl -X POST 'http://192.168.1.100/selling/bulk_delete' -H "Content-Type: application/json" -d '{"ids":[5,6]}'
+```
+
+</details>
+
+ 
+
 > Contact information:
  > * Website: [http://xproxy.io](http://xproxy.io])
  > * Telegram: @phunguyen_hcmus
