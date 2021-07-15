@@ -514,7 +514,7 @@ curl 'http://192.168.1.100/selling/shared_proxies?page=1&limit=20'
 
 
 
-#### Generate socks/http proxies
+#### Generate shared socks/http proxies
 
 <details>
  <summary><code>POST</code> <code><b>/selling/generate</b></code> </summary>
@@ -533,6 +533,7 @@ An ideas is generate multiple proxies in a range of positions from `positionFrom
 > | genPort              	   |  required | integer (1,2)| A type of generate port: `1` is randomize port from `genPortStart`, `2` is start in a range with sequence incremental |
 > | genPortStart               |  required | integer      | A shared port number starting with                                                                                    |
 > | customDNS              	   |  required | string       | A customize ns servers separate by comma, leave blank if you want to use default google DNS (8.8.8.8 8.8.4.4)         |
+> | maxConnection              |  required | integer      | A maximum number of simulationeous connections for this socks/proxy												      |
 > | expiredDate                |  required | integer      | A seconds from epoch time present the expired date of this shared port	                                              |
 > | userAuthenticationEntry    |  required | string       | Authentication user/password list separate by comma like `user1:pass1,user2:pass2`. Leave blank if ignore             |
 > | ipAuthenticationEntry      |  required | integer      | Authentication IP list separate by comma like `128.123.1.38,1.211.12.125`. Leave blank if ignore                      |
@@ -546,7 +547,10 @@ An ideas is generate multiple proxies in a range of positions from `positionFrom
 > | counterUploadLimit         |  required | integer (1,2)| Enable limit upload data usage or not, `1` if you want share `unlimited`. `2` if you want `limited`					  |
 > | counterUploadLimitBy       |  required | integer (1-4)| `1` is daily reset, `2` is weekly reset, `3` is monthly reset, `4` is never reset 									  |
 > | counterUploadQuotaInMB     |  required | integer      | A number of MB (Megabytes) to limit upload data when `counterUploadLimit` enabled as `limited`						  |
-> | memo			           | required  | string       | A noted text for this share socks/proxy									     	                    				  |
+> | counterAllLimit            |  required | integer (1,2)| Enable limit both download/upload data usage or not, `1` if you want share `unlimited`. `2` if you want `limited`	  |
+> | counterAllLimitBy          |  required | integer (1-4)| `1` is daily reset, `2` is weekly reset, `3` is monthly reset, `4` is never reset 									  |
+> | counterAllQuotaInMB        |  required | integer      | A number of MB (Megabytes) to limit upload data when `counterAllLimit` enabled as `limited` 						  |
+> | memo			           |  required | string       | A noted text for this share socks/proxy									     	                    				  |
 
 
 
@@ -618,7 +622,7 @@ You can bulk delete a list of `ID` shared socks/proxy
 
 - Deleted successfully
     > HTTP status: 200
-
+  
 ```javascript
 {
   "status": true,
@@ -643,7 +647,52 @@ curl -X POST 'http://192.168.1.100/selling/bulk_delete' -H "Content-Type: applic
 
 </details>
 
+
+#### Reset data counter on shared socks/http proxies
+
+<details>
+ <summary><code>POST</code> <code><b>/selling/reset_data_counter</b></code> </summary>
+
+##### Parameters
+
+An ideas is you want to reset the limit counter data usage immediately.
+
+
+> | name             |  type     | data type        | description                                   |
+> | -----------------|-----------|------------------|-----------------------------------------------|
+> | ids              |  required | Array (integer)  | Array of shared socks/proxy                   |
  
+
+
+##### Responses
+
+- Reset counter successfully
+    > HTTP status: 200
+  
+```javascript
+{
+  "status": true,
+}
+```
+
+- Another status  
+
+```javascript
+{
+  "status": false,
+}
+```
+
+##### Example cURL
+
+ > send a POST command to reset counter on shared socks/proxy with ID: 5 & 6
+ 
+```javascript
+curl -X POST 'http://192.168.1.100/selling/reset_data_counter' -H "Content-Type: application/json" -d '{"ids":[5,6]}'
+```
+
+</details>
+
 
 > Contact information:
  > * Website: [http://xproxy.io](http://xproxy.io])
