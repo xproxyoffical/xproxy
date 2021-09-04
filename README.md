@@ -27,7 +27,7 @@ You can use any 3G/LTE dongles, Android phones on the world to makes proxies. It
 #### Get list devices and proxies information
 
 <details>
- <summary><code>GET</code> <code><b>/v1/info_list</b></code> </summary>
+ <summary><code>GET</code> <code><b>/api/v1/info_list</b></code> </summary>
 
 ##### Parameters
 
@@ -178,7 +178,7 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rota
 
 
 <details>
-<summary><code>GET</code> <code><b>/v1/rotation/position/<< position >></b></code> <code>[rotation IP with specific position]</code> </summary>
+<summary><code>GET</code> <code><b>/api/v1/rotation/position/<< position >></b></code> <code>[rotation IP with specific position]</code> </summary>
 
 ##### Parameters
 
@@ -206,7 +206,7 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rota
 #### Get status of proxy or position
  
 <details>
-<summary><code>GET</code> <code><b>/v1/status/proxy/<< proxy >></b></code> <code>[get status of specific proxy]</code> </summary>
+<summary><code>GET</code> <code><b>/api/v1/status/proxy/<< proxy >></b></code> <code>[get status of specific proxy]</code> </summary>
 
 ##### Parameters
 
@@ -252,7 +252,7 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/stat
 
 
 <details>
-<summary><code>GET</code> <code><b>/v1/status/position/<< position >></b></code> <code>[get status of specific position]</code> </summary>
+<summary><code>GET</code> <code><b>/api/v1/status/position/<< position >></b></code> <code>[get status of specific position]</code> </summary>
 
 ##### Parameters
 
@@ -280,7 +280,7 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/stat
 #### Reboot dongle with specific proxy or position
  
 <details>
-<summary><code>GET</code> <code><b>/v1/reboot/proxy/<< proxy >></b></code> <code>[reboot dongle with specific proxy]</code> </summary>
+<summary><code>GET</code> <code><b>/api/v1/reboot/proxy/<< proxy >></b></code> <code>[reboot dongle with specific proxy]</code> </summary>
 
 ##### Parameters
 
@@ -325,7 +325,7 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rebo
 
 
 <details>
-<summary><code>GET</code> <code><b>/v1/reboot/position/<< position >></b></code> <code>[reboot dongle with specific position]</code> </summary>
+<summary><code>GET</code> <code><b>/api/v1/reboot/position/<< position >></b></code> <code>[reboot dongle with specific position]</code> </summary>
 
 ##### Parameters
 
