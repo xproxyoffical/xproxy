@@ -131,7 +131,7 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/info
 #### Rotation IP with specific proxy or position
  
 <details>
-<summary><code>GET</code> <code><b>/v1/rotation/proxy/<< proxy >></b></code> <code>[rotation IP with specific proxy]</code> </summary>
+<summary><code>GET</code> <code><b>/api/v1/rotation/proxy/<< proxy >></b></code> <code>[rotation IP with specific proxy]</code> </summary>
 
 ##### Parameters
 
