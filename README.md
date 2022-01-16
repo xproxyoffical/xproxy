@@ -131,7 +131,7 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/info
 #### Rotation IP with specific proxy or position
  
 <details>
-<summary><code>GET</code> <code><b>/api/v1/rotation/proxy/<< proxy >></b></code> <code>[rotation IP with specific proxy]</code> </summary>
+<summary><code>GET</code> <code><b>/api/v1/rotate_ip/proxy/<< proxy >></b></code> <code>[rotation IP with specific proxy]</code> </summary>
 
 ##### Parameters
 
@@ -171,14 +171,14 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/info
  > send a command to rotation IP of device for proxy <code>192.168.1.100:4001</code>
  
 ```javascript
-curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rotation/192.168.1.100:4001
+curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rotate_ip/192.168.1.100:4001
 ```
 
 </details>
 
 
 <details>
-<summary><code>GET</code> <code><b>/api/v1/rotation/position/<< position >></b></code> <code>[rotation IP with specific position]</code> </summary>
+<summary><code>GET</code> <code><b>/api/v1/rotate_ip/position/<< position >></b></code> <code>[rotation IP with specific position]</code> </summary>
 
 ##### Parameters
 
@@ -195,7 +195,7 @@ Same as <i>rotation IP with specific proxy</i>
 
 > send a command to rotation IP of modem in position 1
 ```javascript
-curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rotation/1
+curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rotate_ip/1
 ```
 
 </details>
