@@ -171,7 +171,7 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/info
  > send a command to rotation IP of device for proxy <code>192.168.1.100:4001</code>
  
 ```javascript
-curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rotate_ip/192.168.1.100:4001
+curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rotate_ip/proxy/192.168.1.100:4001
 ```
 
 </details>
@@ -195,7 +195,7 @@ Same as <i>rotation IP with specific proxy</i>
 
 > send a command to rotation IP of modem in position 1
 ```javascript
-curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rotate_ip/1
+curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rotate_ip/position/1
 ```
 
 </details>
@@ -245,7 +245,7 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/rota
  > send a command to get status of device for proxy <code>192.168.1.100:4001</code>
  
 ```javascript
-curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/status/192.168.1.100:4001
+curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/status/proxy/192.168.1.100:4001
 ```
 
 </details>
@@ -270,7 +270,7 @@ Same as <i>get status of specific proxy</i>
  > send a command to get status of device at position 1
 
 ```javascript
-curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/status/1
+curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/status/position/1
 ```
 
 </details>
@@ -318,7 +318,7 @@ curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/stat
  > send a command to reboot device for proxy <code>192.168.1.100:4001</code>
  
 ```javascript
-curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/reboot/192.168.1.100:4001
+curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/reboot/proxy/192.168.1.100:4001
 ```
 
 </details>
@@ -342,7 +342,7 @@ Same as <i>reboot dongle with specific proxy</i>
 
 > send a command to reboot modem in position 1
 ```javascript
-curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/reboot/1
+curl -X GET -H "Content-Type: application/json" http://192.168.1.100/api/v1/reboot/position/1
 ```
 
 </details>
