@@ -13,10 +13,7 @@ You can use any 3G/LTE dongles, Android phones on the world to makes proxies. It
  
 ## The list of dongles support by XProxy Device
 - All Huawei dongles support Hilink interface such as: E3372h, E3372s, E8372h, E303h, E353h, E3276, E3276s, E3272, E3131, E3531, E3351, E3251, E392, E398, E397, E8278, E323S, K5005, K5007, K5150, W5101
-- All Huawei dongles support Stick mode with AT command: MS3372NA, E303s-1, E173, E3131, E367
-- All ZTE dongles support Hilink interface such as: MF861, MF832G, MF831, MF833, MF832u, MF832s, MF827, MF826, MF79, MF75, MF820, MF820D, MF820T, MF820S2, MF880, MF821, MF821D, MF821S2, MF822, MF823, MF825, MF825C, MF831, MF170, MF730M, MF667
-- All ZTE dongles support Stick mode such as: MF190, MF190S, MF820B, E173Eu-1
-- Another stick model universal: Qualcomm MDM9K, D-link-156, Mobily, HSPA Data Card
+- Xproxy XH20, XH22
 
 ## Rest API document
 
